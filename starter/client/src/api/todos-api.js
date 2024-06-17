@@ -1,19 +1,16 @@
 import Axios from 'axios'
 
 export async function getTodos(idToken) {
-  console.log('Fetching todos')
-
-  const response = await Axios.get(
-    `${process.env.REACT_APP_API_ENDPOINT}/todos`,
-    {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${idToken}`
-      }
-    }
-  )
-  console.log('Todos:', response.data)
-  return response.data.items
+    const response = await Axios.get(
+        `${process.env.REACT_APP_API_ENDPOINT}/todos`,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${idToken}`
+            }
+        }
+    )
+    return response.data.items
 }
 
 export async function createTodo(idToken, newTodo) {
